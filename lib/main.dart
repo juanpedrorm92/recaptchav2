@@ -1,5 +1,7 @@
 // @dart=2.9
 import 'package:captcha/src/page/captcha.dart';
+import 'package:captcha/src/page/home.dart';
+import 'package:captcha/src/page/login.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_recaptcha_v2/flutter_recaptcha_v2.dart';
  
@@ -10,17 +12,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
-      home: Scaffold(
-        body: Center(
-          child: TextButton(
-            child: Text("hola Mundo"),
-            onPressed:() =>{}
-          ),
-        ),
-      )
+      //initialRoute: LoginPage.routeName,
+      home: LoginPage(),
+      routes: {
+        HomePage.routeName: (BuildContext context) => HomePage(),
+        MyHomePage.routeName:(BuildContext context) => MyHomePage(),
+      },
     );
   }
 }
